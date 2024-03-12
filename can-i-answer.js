@@ -1,63 +1,69 @@
+// O que é futebol?
 export const palavrasFutebol = {
     probablyWords: [
-    "que", "futebol", "q", "é",
-    "e", "me", "explica", "que",
-    "sabe", "dizer", "o"
+    "que", "futebol",
+    "q", "é", "futebol",
+    "q", "futebol",
+    "que", "e", "futebol",
+    "q", "futebol",
+    "me", "explica", "que", "futebol",
+    "sabe", "me", "dizer", "o", "que", "futebol"
     ],
     matched: 0,
 }
 
+// Quais as regras do futebol?
 export const palavrasRegras = {
     probablyWords: [
-    "quais", "as", "regras", "do",
-    "futebol", "sao", "como",
-    "funciona", "o",
+    "quais", "as", "regras", "do", "futebol",
+    "quais", "sao", "as", "regras", "do", "futebol",
+    "regras", "do", "futebol",
+    "futebol", "regras",
+    "como", "funciona", "o", "futebol"
     ],
     matched: 0,
 }
 
+// Que time ele mais gosta?
 export const palavrasTimeGosta = {
     probablyWords: [
     "que", "mais", "gosta",
     "qual", "você", "torce",
-    "preferido", "clube",
-    "coração", "do", "time",
-    "você",
+    "preferido",
+    "clube", "coração",
+    "do",
+    "time", "você",
     ],
     matched: 0,
 }
 
+// Palmeiras tem mundial?
 export const palavrasMundialPalmeiras = {
     probablyWords: [
     "palmeiras", "tem", "mundial",
-    "copa", "do", "mundo", "campeão"
+    "mundial", "palmeiras",
+    "mundial",
+    "tem", "copa", "do", "mundo",
+    "campeão", "mundial"
     ],
     matched: 0,
 }
 
+// Como dar uma bicicleta?
+export const comoDarUmaBicicleta = {
+    probablyWords: [
+        "bicicleta", "pular", "gol", "de",
+        "como", "dar", "jeito"
+    ],
+    matched: 0,
+}
+
+// Papo furado
 export const palavrasPapoFurado = {
     probablyWords: [
         "basquete", "triatlo", "ping-pong",
         "escola", "sair", "comida",
         "tempo", "clima"
-    ],
-    matched: 0,
-}
-
-export const comoDarUmaBicicleta = {
-    probablyWords: [
-        "bicicleta", "pular", "gol",
-        "de", "como", "dar", "jeito"
-    ],
-    matched: 0,
-}
-
-export const palavrasForaDoEscopo = {
-    probablyWords: [
-        "basquete", "triatlo", "ping-pong",
-        "escola", "sair", "comida", "tempo",
-        "clima", "corrida", "carro", "aposta",
-        "política"
     ],
     matched: 0,
 }
@@ -80,8 +86,8 @@ function showAnswer(index) {
 }
 
 export function mostProbablyQuestion(pergunta) {
-    if (pergunta.some(word => palavrasForaDoEscopo.probablyWords.includes(word))) {
-        return "Essa pergunta está fora do escopo do meu conhecimento."
+    if (pergunta.includes(palavrasPapoFurado.probablyWords)) {
+        return `Não falo sobre ${pergunta}`
     }
     let matches = [
         palavrasFutebol.matched, 
@@ -91,5 +97,9 @@ export function mostProbablyQuestion(pergunta) {
         comoDarUmaBicicleta.matched,
         palavrasPapoFurado.matched,
     ]
+    console.log(matches)
+    console.log(Math.max(...matches))
+    console.log(matches.indexOf(Math.max(...matches)))
+    // Vê quantas palavras de cada pergunta foi usada
     return showAnswer(matches.indexOf(Math.max(...matches)))
 }
