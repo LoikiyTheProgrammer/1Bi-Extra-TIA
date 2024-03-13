@@ -87,7 +87,7 @@ function showAnswer(index) {
 
 export function mostProbablyQuestion(pergunta) {
     if (pergunta.includes(palavrasPapoFurado.probablyWords)) {
-        return `Não falo sobre ${pergunta}`
+        return `Não sei nada sobre ${pergunta}`
     }
     let matches = [
         palavrasFutebol.matched, 
