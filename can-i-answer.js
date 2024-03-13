@@ -89,6 +89,13 @@ export function mostProbablyQuestion(pergunta) {
     if (pergunta.includes(palavrasPapoFurado.probablyWords)) {
         return `Não sei nada sobre ${pergunta}`
     }
+    /* ideia q eu tive para falar a palavra exata
+    for(let i = 0; i < pergunta.length; i++) {
+        if(palavrasPapoFurado.probablyWords.indexOf(pergunta[i]) !== -1) {
+            return `Não sei nada sobre ${pergunta[i]}`
+        }
+    }
+    */
     let matches = [
         palavrasFutebol.matched, 
         palavrasRegras.matched, 
